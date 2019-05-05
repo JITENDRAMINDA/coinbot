@@ -2,7 +2,6 @@
  "start": "node.js" ,
 "name": "coinbot",
   "description": "Random decisions for Telegram",
-"engines": { "node": "10.3.0" },
   "version": "1.0.0",
   "main": "bot/index.js",
   "license": "MIT",
