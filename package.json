@@ -1,5 +1,5 @@
 {
- "start": "node.js" ,
+ 
 "name": "coinbot",
   "description": "Random decisions for Telegram",
   "version": "1.0.0",
