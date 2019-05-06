@@ -18,24 +18,17 @@ composer.command(['start', 'help'], ctx => {
   })
 })
 
-commands.forEach(command => {
-  const c = command()
-  composer.command(c.trigger, ctx => {
-    const {text} = ctx.message
-    const index = text.trim().indexOf(' ')
-    const query = index > 0 ? text.substr(index + 1) : ''
+commands.forEach(command => 
+{bot.getChatMember(message.chat.id, message.from.id).then(function(data)
+ { if ((data.status == "creator") || (data.status == "administrator"))
+{ const c = command()
+ composer.command(c.trigger, ctx =>
+ { const {text} = ctx.message const
+ index = text.trim().indexOf(' ')
+ const query = index > 0 ? text.substr(index + 1) : '' const {message, enabled, trigger, parameter} = command(query) let parameterMessage if (!enabled) 
+{ parameterMessage = `The parameter you supplied is invalid.\n\nExample usage: /${trigger} _${parameter}_` } ctx.reply(parameterMessage || message, { parse_mode: 'Markdown' }) })	}
+else{ bot.sendMessage(message.chat.id, "only admin ✔️✔️"); 		}})
 
-    const {message, enabled, trigger, parameter} = command(query)
 
-    let parameterMessage
-    if (!enabled) {
-      parameterMessage = `The parameter you supplied is invalid.\n\nExample usage: /${trigger} _${parameter}_`
-    }
-
-    ctx.reply(parameterMessage || message, {
-      parse_mode: 'Markdown'
-    })
-  })
-})
 
 export default composer.middleware()
